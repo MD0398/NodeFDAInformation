@@ -4,7 +4,7 @@ function performGetRequest1(){
 
   axios.get('https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&count=patient.reaction.reactionmeddrapt.exact')
     .then(function (response) {
-      resultElement.innerHTML = Success(response);
+      resultElement.innerHTML = Success(response.data.results);
     })
     .catch(function (error) {
       resultElement.innerHTML = ErrorHTML(error);
@@ -16,13 +16,13 @@ function performGetRequest2(){
   var todoId = document.getElementById('todoId').value;
   resultElement.innerHTML = '';
 
-  axios.get('http://jsonplaceholder.typicode.com/todos', {
+  axios.get('https://api.fda.gov/food/event.json', {
     params: {
-      id: todoId
+      search: "products.industry_code."+todoId
     }
   })
     .then(function (response) {
-      resultElement.innerHTML = Success(response);
+      resultElement.innerHTML = Success(response.data.results);
     })
     .catch(function (error) {
       resultElement.innerHTML = ErrorHTML(error);
@@ -38,13 +38,8 @@ function clearOutput() {
 
 
 function Success(response) {
-    return  '<h4>Result:</h4>' +
-            '<h5>Status:</h5>' +
-            '<pre>' + response.status + ' ' + response.statusText + '</pre>' +
-            '<h5>Headers:</h5>' +
-            '<pre>' + JSON.stringify(response.headers, null, '\t') + '</pre>' +
-            '<h5>Data:</h5>' +
-            '<pre>' + JSON.stringify(response.data, null, '\t') + '</pre>';
+    return   '<h4>Result:</h4>' +
+    '<pre>' + JSON.stringify(response, null, '\t') + '</pre>';
   }
   
   function ErrorHTML(error) {

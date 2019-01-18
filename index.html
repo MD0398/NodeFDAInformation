@@ -11,30 +11,30 @@
         <h4>This applications uses Axios. This will retrive the data from openFDA api and display it below using underscore.js library.</h4>
       </div>
       <div class="panel panel-primary">
-        <div class="panel-heading">GET Request</div>
+        <div class="panel-heading">please click the below to get the count of patient reactions.Note: here multiple drugs in the records may match this class</div>
+        <br>
         <div class="panel-body">
-          <button class="btn btn-primary" onclick="performGetRequest1()">Get Todos</button>
-          <button class="btn btn-warning" onclick="clearOutput()">Clear</button>
+          <button class="btn btn-primary" onclick="performGetRequest1()">get count</button>
           <div class="panel-body" id="getResult1"></div>
         </div>
       </div>
       <div class="panel panel-primary">
-        <div class="panel-heading">GET Request with Paramaters</div>
+        <br>
+        <div class="panel-heading">Search records listing products associated with a certain industry. Please enter the industry code below:</div>
+        <br>
         <div class="panel-body">
           <input type="text" class="form-control" id="todoId" placeholder="Todo ID ..."/><br/>
-          <button class="btn btn-primary" onclick="performGetRequest2()">Get Todos</button>
-          <button class="btn btn-warning" onclick="clearOutput()">Clear</button>
+          <br>
+          <button class="btn btn-primary" onclick="performGetRequest2()">Search Products</button>
           <div class="panel-body" id="getResult2"></div>
         </div>
       </div>
        <div class="panel panel-primary">
         <div class="panel-body">
+          <br>
           <button class="btn btn-warning" onclick="clearOutput()">Clear</button>
           <div class="panel-body" id="postResult"></div>
         </div>
-      </div>
-      <div class="footer">
-        <p>&copy <a href="http://codingthesmartway.com" target="_blank">CodingTheSmartWay.com</a> | <a href="http://codingthesmartway.com/imprint" target="_blank">Imprint</a></p>
       </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
